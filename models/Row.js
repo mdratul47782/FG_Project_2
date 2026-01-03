@@ -8,6 +8,10 @@ const SegmentSchema = new mongoose.Schema(
 const PillarSchema = new mongoose.Schema(
   {
     atSegmentBoundaryIndex: { type: Number, required: true }, // after which segment
+    // ✅ preferred (gap width == diameter)
+    diameterCm: { type: Number, default: 0 },
+
+    // ✅ backward-compat (old data)
     radiusCm: { type: Number, default: 10 },
   },
   { _id: false }
@@ -15,7 +19,7 @@ const PillarSchema = new mongoose.Schema(
 
 const RowSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true }, // "Row-1"
+    name: { type: String, required: true },
     warehouse: { type: String, enum: ["B1", "B2"], required: true },
 
     widthCm: { type: Number, default: 120 },

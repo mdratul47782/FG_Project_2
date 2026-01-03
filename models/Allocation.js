@@ -10,13 +10,10 @@ const SegmentMetaSchema = new mongoose.Schema(
     usedBeforeCm: { type: Number, required: true },
     startFromRowStartCm: { type: Number, required: true },
 
-    // ✅ keep this REQUIRED, but now it means “reserved length” (used + wasted tail)
     allocatedLenCm: { type: Number, required: true },
 
     endFromRowStartCm: { type: Number, required: true },
     remainingAfterCm: { type: Number, required: true },
-
-    // ✅ NEW (optional, won’t break old docs)
     wastedTailCm: { type: Number, default: 0 },
   },
   { _id: false }
