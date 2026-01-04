@@ -163,7 +163,7 @@ export default function GraphicalPane({ warehouse, selectedRowId, preview }) {
     <div className="border border-slate-200 rounded-2xl p-6 bg-gradient-to-br from-orange-50 to-blue-50 shadow-xl">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold text-slate-800 flex items-center gap-2">
-          <span className="text-3xl">📊</span>
+          
           Graphical View ({warehouse})
         </h2>
         <button

@@ -78,15 +78,6 @@ export function buildCellsSnapshot({ segmentsPlan, across, layers, qtyTotal }) {
 
   return cells;
 }
-
-/**
- * ✅ FIXED:
- * 1) rowTotalLengthCm now includes pillar gaps (your code previously ignored gaps :contentReference[oaicite:2]{index=2})
- * 2) segmentStartCm now includes pillar gaps (previously only seg.lengthCm :contentReference[oaicite:3]{index=3})
- * 3) allocatedLenCm now can “round up” the unusable tail (< columnDepthCm),
- *    so a 353cm segment can become “allocatedLenCm = 353” instead of 320 :contentReference[oaicite:4]{index=4}
- * 4) usedBeforeCm uses prior allocations’ segmentsMeta.allocatedLenCm (reserved), not only columnsBySegment.lengthUsedCm :contentReference[oaicite:5]{index=5}
- */
 export function previewForRow({ row, buyer, cartonDimCm, cartonQty, priorAllocations = [] }) {
   const metrics = computeMetrics({
     buyer,
